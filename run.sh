@@ -6,11 +6,12 @@ export PALEO_HOME=`pwd`
 export PYPY_GC_MAX=20GB
 
 # Database Configuration
-export DB_NAME=cleanpaleo
-export DB_USER=postgres
+export DBNAME=cleanpaleo
+export PGUSER=postgres
 #Password is set via the PGPASSWORD environment variable
-export DB_PASSWORD=bB19871121
-export DB_PORT=5432
+export DBPASSWORD=bB19871121
+export PGPORT=5432
+export PGHOST=localhost
 
 cd $DEEPDIVE_HOME
 #$PALEO_HOME/prepare_data.sh
