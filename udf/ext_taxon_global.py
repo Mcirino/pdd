@@ -64,7 +64,8 @@ def get_sents(_docid, _sentids, _wordidxs, _words, _poses, _ners, _lemmas, _dep_
 	j = 0
 	for i in range(0, len(knobs)-1):
 		s = knobs[i]
-		e = knobs[i+1]
+		if s != 0: s = s + 1
+		e = knobs[i+1] + 1
 		yield (_docid, _sentids[j], _wordidxs[s:e], _words[s:e], _poses[s:e], _ners[s:e], _lemmas[s:e], _dep_paths[s:e], _dep_parents[s:e], _bounding_boxes[s:e])
 		j = j + 1
 
@@ -143,11 +144,11 @@ for _row in sys.stdin:
 						for longphrase in possible_shortphrase[phrase.lower()]:
 							t = possible_shortphrase[phrase.lower()][longphrase]
 
-							print json.dumps({"docid":docid, "type":t, "eid":eid, "entity": longphrase, "prov":prov, "author_year":""})
+							print json.dumps({"docid":docid, "type":t, "eid":eid, "entity": longphrase, "prov":prov, "author_year":"", "is_correct":None})
 
 					else:
 						if len(ss) == 2 and last_genus.startswith(words[start][0].lower()):
 							testname = last_genus + ' ' + " ".join(words[(start+1):end]).lower()
 							if testname in dict_fossils: 
 								t = dict_fossils[testname]
-								print json.dumps({"docid":docid, "type":t, "eid":eid, "entity": longphrase, "prov":prov, "author_year":""})
+								print json.dumps({"docid":docid, "type":t, "eid":eid, "entity": longphrase, "prov":prov, "author_year":"", "is_correct":None})

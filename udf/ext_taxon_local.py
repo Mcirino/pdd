@@ -168,21 +168,21 @@ for _row in sys.stdin:
 
 			if lphrase in dict_fossils:
 				if prerank != None:
-					print json.dumps({"docid":docid, "type":prerank, "eid":eid, "entity": lphrase, "prov":prov, "author_year":""})
+					print json.dumps({"docid":docid, "type":prerank, "eid":eid, "entity": lphrase, "prov":prov, "author_year":"", "is_correct":None})
 				else:
-					print json.dumps({"docid":docid, "type":dict_fossils[lphrase], "eid":eid, "entity": lphrase, "prov":prov, "author_year":""})
+					print json.dumps({"docid":docid, "type":dict_fossils[lphrase], "eid":eid, "entity": lphrase, "prov":prov, "author_year":"", "is_correct":None})
 			elif ' ' not in lphrase and lphrase.endswith('idae') and lphrase not in dict_english:
  				if prerank != None:
-					print json.dumps({"docid":docid, "type":prerank, "eid":eid, "entity": lphrase, "prov":prov, "author_year":""})
+					print json.dumps({"docid":docid, "type":prerank, "eid":eid, "entity": lphrase, "prov":prov, "author_year":"", "is_correct":None})
 				else:
-					print json.dumps({"docid":docid, "type":"family", "eid":eid, "entity": lphrase, "prov":prov, "author_year":""})
+					print json.dumps({"docid":docid, "type":"family", "eid":eid, "entity": lphrase, "prov":prov, "author_year":"", "is_correct":None})
 			else:		
 				ss = phrase.split(' ')
 				ssl = lphrase.split(' ')
 				if len(ss) == 2:
 					if ssl[0] in dict_fossils and 'genus' in dict_fossils[ssl[0]]:
 						if ssl[1] in dict_species_lastword and ssl[1] not in dict_english:
-							print json.dumps({"docid":docid, "type":"species", "eid":eid, "entity": lphrase, "prov":prov, "author_year":""})
+							print json.dumps({"docid":docid, "type":"species", "eid":eid, "entity": lphrase, "prov":prov, "author_year":"", "is_correct":None})
 
 				cleanup = []
 				inpars = []
@@ -203,18 +203,18 @@ for _row in sys.stdin:
 					if nc == 1:
 						if len(cleanup) == 1 and ss[0] != '(':
 							if cleanup[0] in dict_fossils and 'genus' in dict_fossils[cleanup[0]]:
-								print json.dumps({"docid":docid, "type":"subgenus", "eid":eid, "entity": " ".join(ssl), "prov":prov, "author_year":""})
+								print json.dumps({"docid":docid, "type":"subgenus", "eid":eid, "entity": " ".join(ssl), "prov":prov, "author_year":"", "is_correct":None})
 
 					if nc == 1 and len(cleanup) == 2:
 						if cleanup[0] in dict_fossils and 'genus' in dict_fossils[cleanup[0]]:
 							if cleanup[1] in dict_species_lastword and cleanup[1] not in dict_english:
 
-								print json.dumps({"docid":docid, "type":"species", "eid":eid, "entity": " ".join(ssl), "prov":prov, "author_year":""})
+								print json.dumps({"docid":docid, "type":"species", "eid":eid, "entity": " ".join(ssl), "prov":prov, "author_year":"", "is_correct":None})
 								
 								eid2 = "TAXON_DOC_" + docid + "_%s_%d_%d" % (sentid, start, start)
 								prov2 = [sentid, "%d"%start, "%d"%start, cleanup[0]]
 
-								print json.dumps({"docid":docid, "type":"genus", "eid":eid2, "entity": cleanup[0], "prov":prov2, "author_year":""})
+								print json.dumps({"docid":docid, "type":"genus", "eid":eid2, "entity": cleanup[0], "prov":prov2, "author_year":"", "is_correct":None})
 
 
 

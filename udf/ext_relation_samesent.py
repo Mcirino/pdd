@@ -25,7 +25,8 @@ def get_sents(_docid, _sentids, _wordidxs, _words, _poses, _ners, _lemmas, _dep_
 	j = 0
 	for i in range(0, len(knobs)-1):
 		s = knobs[i]
-		e = knobs[i+1]
+		if s != 0: s = s + 1
+		e = knobs[i+1] + 1
 		yield (_docid, _sentids[j], _wordidxs[s:e], _words[s:e], _poses[s:e], _ners[s:e], _lemmas[s:e], _dep_paths[s:e], _dep_parents[s:e], _bounding_boxes[s:e])
 		j = j + 1
 
@@ -54,7 +55,6 @@ def wordseq_feature(e1, e2, docid, sentid, wordidxs, words, poses, ners, lemmas,
 	return prefix + "_".join(ss)
 
 #def dep_path(e1, e2, docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, bounding_boxes):
-
 
 Mention = collections.namedtuple('Mention', ['entity', 'eid', 'start', 'end', 'type'])
 
@@ -137,8 +137,4 @@ for _row in sys.stdin:
 				e2 = rels['FORMATIONLOCATION'][ent][2]
 				ddlib.log("~~~~~~~~~~~~~~")
 				print json.dumps({"docid":docid, "type":"FORMATIONINTERVAL", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT-NEAREST]"})
-
-
-
-
 

@@ -87,7 +87,7 @@ for _row in sys.stdin:
 								eid = "ROCK_DOC_" + docid + "_%s_%d_%d" % (sentid, start, end-1)
 								prov = [sentid, "%d"%start, "%d"%(end-1), phrase]
 
-								print json.dumps({"docid":docid, "type":rocktype, "eid":eid, "entity": name, "prov":prov})
+								print json.dumps({"docid":docid, "type":rocktype, "eid":eid, "entity": name, "prov":prov, "is_correct":None})
 
 								for i in range(start, end): history[i] = 1
 

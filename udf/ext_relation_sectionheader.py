@@ -24,7 +24,8 @@ def get_sents(_docid, _sentids, _wordidxs, _words, _poses, _ners, _lemmas, _dep_
 	j = 0
 	for i in range(0, len(knobs)-1):
 		s = knobs[i]
-		e = knobs[i+1]
+		if s != 0: s = s + 1
+		e = knobs[i+1] + 1
 
 		yield (_docid, _sentids[j], _wordidxs[s:e], _words[s:e], _poses[s:e], _ners[s:e], _lemmas[s:e], _dep_paths[s:e], _dep_parents[s:e], _bounding_boxes[s:e])
 		j = j + 1
@@ -44,7 +45,8 @@ def get_sents2(_docid, _sentids, _wordidxs, _words, _poses, _ners, _lemmas, _dep
 	j = 0
 	for i in range(0, len(knobs)-1):
 		s = knobs[i]
-		e = knobs[i+1]
+		if s != 0: s = s + 1
+		e = knobs[i+1] + 1
 		yield (_docid, _sentids[j], _wordidxs[s:e], _words[s:e], _poses[s:e], _ners[s:e], _lemmas[s:e], _dep_paths[s:e], _dep_parents[s:e], _bounding_boxes[s:e], _centereds[s:e], _followeds[s:e], _left_margins[s:e], _boxes[s:e])
 		j = j + 1
 
@@ -80,8 +82,6 @@ fonts = {}
 
 Mention = collections.namedtuple('Mention', ['entity', 'eid', 'start', 'end', 'type'])
 Sentence = collections.namedtuple('Sentence', ['docid', 'sentid', 'wordidxs', 'words', 'poses', 'ners', 'lemmas', 'dep_paths', 'dep_parents', 'bounding_boxes', 'centereds', 'followeds', 'left_margins', 'boxes'])
-
-
 
 def syn(sents):
 

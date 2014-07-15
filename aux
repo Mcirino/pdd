@@ -1,0 +1,22 @@
+aux : {
+	ext_table_from_text : {
+		output_relation : "ddtables"
+    input           : """
+    				   SELECT t0.docid as docid,
+    						  array_agg((t0.sentid) ORDER BY t0.sentid::int) as sentids,
+    						  array_stack_int((t0.wordidxs || 0) ORDER BY t0.sentid::int) as wordidxs,
+    						  array_stack_text((t0.words) ORDER BY t0.sentid::int) as words,
+    						  array_stack_text((t0.poses) ORDER BY t0.sentid::int) as poses,
+    						  array_stack_text((t0.ners) ORDER BY t0.sentid::int) as ners,
+    						  array_stack_text((t0.lemmas) ORDER BY t0.sentid::int) as lemmas,
+    						  array_stack_text((t0.dep_paths) ORDER BY t0.sentid::int) as dep_paths,
+    						  array_stack_int((t0.dep_parents) ORDER BY t0.sentid::int) as dep_parents,
+    						  array_stack_text((t0.bounding_boxes) ORDER BY t0.sentid::int) as bounding_boxes
+    				   FROM sentences t0
+    				   GROUP BY t0.docid
+    				  """
+    udf             : ${PALEO_HOME}"/udf/ext_table_from_text.py"
+    parallelism     : 1
+	}
+}
+

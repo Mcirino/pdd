@@ -93,7 +93,7 @@ for _row in sys.stdin:
 						prov = [sentid, "%d"%start, "%d"%(end-1), phrase]
 						name = good_names[phrase.lower()]
 
-						print json.dumps({"docid":docid, "type":local_entity_types[name], "eid":eid, "entity": name, "prov":prov, "is_correct":None})
+						print json.dumps({"docid":docid, "type":local_entity_types[name], "eid":eid, "entity": name, "prov":prov})
 
 
 

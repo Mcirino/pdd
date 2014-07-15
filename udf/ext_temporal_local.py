@@ -42,7 +42,7 @@ for _row in sys.stdin:
 				eid = "TIME_DOC_" + docid + "_%s_%d_%d" % (sentid, start, end-1)
 				prov = [sentid, "%d"%start, "%d"%(end-1), phrase]
 				name = dict_intervals[phrase.lower()]
-				print json.dumps({"docid":docid, "type":"INTERVAL", "eid":eid, "entity": name, "prov":prov})
+				print json.dumps({"docid":docid, "type":"INTERVAL", "eid":eid, "entity": name, "prov":prov, "is_correct":None})
 
 				#ddlib.log(name)
 
@@ -58,7 +58,7 @@ for _row in sys.stdin:
 						eid = "TIME_DOC_" + docid + "_%s_%d_%d_PART_%d" % (sentid, start, end-1, i)
 						prov = [sentid, "%d"%start, "%d"%(end-1), part]
 						name = dict_intervals[part.lower()]
-						print json.dumps({"docid":docid, "type":"INTERVAL", "eid":eid, "entity": name, "prov":prov})
+						print json.dumps({"docid":docid, "type":"INTERVAL", "eid":eid, "entity": name, "prov":prov, "is_correct":None})
 
 						#ddlib.log(name)
 
