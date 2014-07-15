@@ -54,7 +54,7 @@ for _row in sys.stdin:
 
 		overlapped = False
 		for (a,b) in kb_formation_temporal[entity1]:
-			if max(b,large) - min(a,small) >= b-a + large-small + 10:
+			if max(b,large) - min(a,small) >= b-a + large-small :
 				donothing = True
 			else:
 				overlapped = True
