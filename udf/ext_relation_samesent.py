@@ -92,6 +92,19 @@ for _row in sys.stdin:
 		get_sents(_docid, _sentids, _wordidxs, _words, _poses, _ners, _lemmas, _dep_paths, _dep_parents, _bounding_boxes):
 
 		if sentid in sent_2_entities and len(sent_2_entities) >= 2:
+
+			myobj = {}
+			myobj['lemma'] = lemmas
+			myobj['words'] = words
+			myobj['dep_graph'] = []
+			#print words
+			#print lemmas
+			for i in range(0,len(words)):
+				#print dep_parents[i]
+				myobj['dep_graph'].append("%d\t"%(dep_parents[i]-1) +dep_paths[i] + "\t" + "%d"%(i))
+			word_obj_list = ddlib.unpack_words(myobj, lemma='lemma', words='words', dep_graph='dep_graph')
+			#print word_obj_list
+
 			entities = sent_2_entities[sentid]
 
 			rels ={}
@@ -106,22 +119,102 @@ for _row in sys.stdin:
 
 					ws = wordseq_feature(e1, e2, docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, bounding_boxes)
 					#ws_dep = doc.sents[sent].dep_path(e1, e2)
-				
+					edges = ddlib.dep_path_between_words(word_obj_list, e1.end, e2.end)
+					#print edges
+
+
+					if len(edges) > 0:
+						num_roots = 0 # the number of root nodes
+						num_left = 0 # the number of edges to the left of the root
+						num_right = 0 # the number of edges to the right of the root
+						left_path = "" # the dependency path to the left of the root
+						right_path = "" # the dependency path to the right of the root
+						
+                # find the index of the switch from up to down
+						switch_direction_index = -1
+						for i in range(len(edges)):
+							if not edges[i].is_bottom_up:
+								switch_direction_index = i
+								break
+                
+                # iterate through the edge list
+						for i in range(len(edges)):
+							curr_edge = edges[i]
+
+                    # count the number of roots; if there are more than 1 root then our dependency
+                    # path is disconnected
+							if curr_edge.label == 'ROOT':
+								num_roots += 1
+
+                    # going from the left to the root
+							if curr_edge.is_bottom_up:
+								num_left += 1
+
+                        # if this is the edge pointing to the root (word2 is the root)
+								if i == switch_direction_index - 1:
+									left_path = left_path + ("--" + curr_edge.label + "->")
+									root = curr_edge.word2.lemma.lower()
+
+                        # this edge does not point to the root
+								else:
+                            # if we are at the last edge, don't include the word (part of the mention)
+									if i == len(edges) - 1:
+										left_path = left_path + ("--" + curr_edge.label + "->")
+									else:
+										left_path = left_path + ("--" + curr_edge.label + "->" + curr_edge.word2.lemma.lower())
+                    
+                    # going from the root to the right
+							else:
+								num_right += 1
+
+                        # the first edge to the right of the root
+								if i == switch_direction_index:
+									right_path = right_path + "<-" + curr_edge.label + "--"
+
+                        # this edge does not point from the root
+								else:
+                            # if we are at the first edge, don't include the word (part of the mention)
+									if i == 0:
+										right_path = right_path + ("<-" + curr_edge.label + "--")
+									else:
+                                # word1 is the parent for right to left
+										right_path = right_path + (curr_edge.word1.lemma.lower() + "<-" + curr_edge.label + "--")
+                
+                # if the root is at the end or at the beginning (direction was all up or all down)
+						if num_right == 0:
+							root = "|SAMEPATH"
+						elif num_left == 0:
+							root = "SAMEPATH|"
+
+                # if the edges have a disconnect
+						elif num_roots > 1:
+							root = "|NONEROOT|"
+
+                # this is a normal tree with a connected root in the middle
+						else:
+							root = "|" + root + "|"
+					path = left_path + root + right_path
+					#print path
+
 					if e1.type in ranks and e2.type in ranks:
 						if ranks[e1.type] < ranks[e2.type]:
 							print json.dumps({"docid":docid, "type":"TAXONOMY", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + ws + "] "})
-
+							print json.dumps({"docid":docid, "type":"TAXONOMY", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + path + "] "})
+							
 					if ';' in ws and len(words) > 10:
 						continue
 					
 					if e1.type not in ['FORMATION', 'LOCATION', 'INTERVAL'] and e2.type == 'LOCATION':
 						print json.dumps({"docid":docid, "type":"LOCATION", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + ws + "] "})
+						print json.dumps({"docid":docid, "type":"LOCATION", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + path + "] "})
 
 					if e1.type not in ['FORMATION', 'LOCATION', 'INTERVAL'] and e2.type == 'FORMATION':
 						print json.dumps({"docid":docid, "type":"FORMATION", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + ws + "] "})
+						print json.dumps({"docid":docid, "type":"FORMATION", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + path + "] "})
 
 					if e1.type == 'FORMATION' and e2.type == 'LOCATION':
 						print json.dumps({"docid":docid, "type":"FORMATIONLOCATION", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + ws + "] "})
+						print json.dumps({"docid":docid, "type":"FORMATIONLOCATION", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + path + "] "})
 
 						if e1.entity not in rels['FORMATIONLOCATION']:
 							rels['FORMATIONLOCATION'][e1.entity] = (math.fabs(e1.start-e2.start), e1, e2) 
@@ -131,6 +224,7 @@ for _row in sys.stdin:
 
 					if e1.type == 'FORMATION' and e2.type == 'INTERVAL':
 						print json.dumps({"docid":docid, "type":"FORMATIONINTERVAL", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + ws + "] "})
+						print json.dumps({"docid":docid, "type":"FORMATIONINTERVAL", "eid1":e1.eid, "eid2":e2.eid, "entity1":e1.entity, "entity2":e2.entity, "features":"[SAMESENT PROV=" + path + "] "})
 
 			for ent in rels['FORMATIONLOCATION']:
 				e1 = rels['FORMATIONLOCATION'][ent][1]
