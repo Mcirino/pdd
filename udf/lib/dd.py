@@ -88,6 +88,8 @@ def tokens_between_spans(words, span1, span2, func=lambda x:x):
 def _path_to_root(words, word_idx):
 	rs = []
 	c_word_idx = word_idx
+	#print len(words)
+	#print "~~", c_word_idx
 	while True:
 		rs.append(words[c_word_idx])
 		if words[c_word_idx].dep_par == -1 or words[c_word_idx].dep_par == c_word_idx:

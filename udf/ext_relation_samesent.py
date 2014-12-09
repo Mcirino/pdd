@@ -103,6 +103,12 @@ for _row in sys.stdin:
 				#print dep_parents[i]
 				myobj['dep_graph'].append("%d\t"%(dep_parents[i]-1) +dep_paths[i] + "\t" + "%d"%(i))
 			word_obj_list = ddlib.unpack_words(myobj, lemma='lemma', words='words', dep_graph='dep_graph')
+			#print len(words)
+			#print len(poses)
+			#print len(dep_parents)
+			#print "~", wordidxs
+			#print "-", dep_paths
+			#print "+", dep_parents
 			#print word_obj_list
 
 			entities = sent_2_entities[sentid]
@@ -119,9 +125,11 @@ for _row in sys.stdin:
 
 					ws = wordseq_feature(e1, e2, docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, bounding_boxes)
 					#ws_dep = doc.sents[sent].dep_path(e1, e2)
-					edges = ddlib.dep_path_between_words(word_obj_list, e1.end, e2.end)
+					try:
+						edges = ddlib.dep_path_between_words(word_obj_list, e1.end, e2.end)
+					except:
+						edges = []
 					#print edges
-
 
 					if len(edges) > 0:
 						num_roots = 0 # the number of root nodes
