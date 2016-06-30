@@ -1,0 +1,2088 @@
+
+digraph "pdd data flow" {
+    graph[rankdir=BT  # bottom-to-top drawing (or RL/right-to-left may also make sense)
+    ];
+    node [shape=box
+         ,style=dotted
+         ,fontsize=10
+         ,fontname="Ubuntu Mono,Envy Code R,Oxygen Mono,Consolas,Menlo,Monaco,Andale Mono"
+    ];
+    edge [color="#999999"];
+
+
+"process/
+init/app" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+init/relation/sentences_original" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+init/app" -> "process/
+init/relation/sentences_original" [
+label=""
+
+];
+
+"process/
+ext_all_entity_candidate" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_formation_candidate" -> "process/
+ext_all_entity_candidate" [
+label=""
+
+];
+
+"data/
+entity_location_candidate" -> "process/
+ext_all_entity_candidate" [
+label=""
+
+];
+
+"data/
+entity_taxon_candidate" -> "process/
+ext_all_entity_candidate" [
+label=""
+
+];
+
+"data/
+entity_temporal_candidate" -> "process/
+ext_all_entity_candidate" [
+label=""
+
+];
+
+"process/
+ext_all_entity_per_doc" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+all_entity_candidate" -> "process/
+ext_all_entity_per_doc" [
+label=""
+
+];
+
+"process/
+ext_document_with_all_entities" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+all_entity_per_doc" -> "process/
+ext_document_with_all_entities" [
+label=""
+
+];
+
+"data/
+documents_serialized" -> "process/
+ext_document_with_all_entities" [
+label=""
+
+];
+
+"process/
+ext_document_with_formation_entities" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+documents_serialized" -> "process/
+ext_document_with_formation_entities" [
+label=""
+
+];
+
+"data/
+formation_per_doc" -> "process/
+ext_document_with_formation_entities" [
+label=""
+
+];
+
+"process/
+ext_document_with_taxon_entities" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+documents_serialized" -> "process/
+ext_document_with_taxon_entities" [
+label=""
+
+];
+
+"data/
+taxon_per_doc" -> "process/
+ext_document_with_taxon_entities" [
+label=""
+
+];
+
+"process/
+ext_documents" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+sentences_serialized" -> "process/
+ext_documents" [
+label=""
+
+];
+
+"process/
+ext_documents_serialized" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+documents" -> "process/
+ext_documents_serialized" [
+label=""
+
+];
+
+"process/
+ext_entity_formation" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_formation_candidate" -> "process/
+ext_entity_formation" [
+label=""
+
+];
+
+"process/
+ext_entity_formation_candidate" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_formation_candidate__0" -> "process/
+ext_entity_formation_candidate" [
+label=""
+
+];
+
+"data/
+entity_formation_candidate_local" -> "process/
+ext_entity_formation_candidate" [
+label=""
+
+];
+
+"process/
+ext_entity_formation_candidate__0_by_ext_entity_formation_global" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+document_with_formation_entities" -> "process/
+ext_entity_formation_candidate__0_by_ext_entity_formation_global" [
+label=""
+
+];
+
+"process/
+ext_entity_formation_candidate_local_by_ext_entity_formation_local" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+sentences_serialized" -> "process/
+ext_entity_formation_candidate_local_by_ext_entity_formation_local" [
+label=""
+
+];
+
+"process/
+ext_entity_location" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_location_candidate" -> "process/
+ext_entity_location" [
+label=""
+
+];
+
+"process/
+ext_entity_location_candidate_by_ext_entity_location_global" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+documents_serialized" -> "process/
+ext_entity_location_candidate_by_ext_entity_location_global" [
+label=""
+
+];
+
+"process/
+ext_entity_taxon" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_taxon_candidate" -> "process/
+ext_entity_taxon" [
+label=""
+
+];
+
+"process/
+ext_entity_taxon_candidate" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_taxon_candidate__0" -> "process/
+ext_entity_taxon_candidate" [
+label=""
+
+];
+
+"data/
+entity_taxon_candidate_local" -> "process/
+ext_entity_taxon_candidate" [
+label=""
+
+];
+
+"process/
+ext_entity_taxon_candidate__0_by_ext_entity_taxon_global" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+document_with_taxon_entities" -> "process/
+ext_entity_taxon_candidate__0_by_ext_entity_taxon_global" [
+label=""
+
+];
+
+"process/
+ext_entity_taxon_candidate_local_by_ext_entity_taxon_local" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+sentences_serialized" -> "process/
+ext_entity_taxon_candidate_local_by_ext_entity_taxon_local" [
+label=""
+
+];
+
+"process/
+ext_entity_temporal" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_temporal_candidate" -> "process/
+ext_entity_temporal" [
+label=""
+
+];
+
+"process/
+ext_entity_temporal_candidate_by_ext_entity_temporal_local" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+sentences_serialized" -> "process/
+ext_entity_temporal_candidate_by_ext_entity_temporal_local" [
+label=""
+
+];
+
+"process/
+ext_formation_per_doc" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_formation_candidate_local" -> "process/
+ext_formation_per_doc" [
+label=""
+
+];
+
+"process/
+ext_relation_candidates_by_ext_relation_same_sent" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+document_with_all_entities" -> "process/
+ext_relation_candidates_by_ext_relation_same_sent" [
+label=""
+
+];
+
+"process/
+ext_relation_formation" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_formation_supervise" -> "process/
+ext_relation_formation" [
+label=""
+
+];
+
+"process/
+ext_relation_formation_global" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_formation" -> "process/
+ext_relation_formation_global" [
+label=""
+
+];
+
+"process/
+ext_relation_formation_supervise_by_ext_relation_variable_formation" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+ext_relation_formation_supervise_by_ext_relation_variable_formation" [
+label=""
+
+];
+
+"process/
+ext_relation_formationtemporal" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_formationtemporal_supervise" -> "process/
+ext_relation_formationtemporal" [
+label=""
+
+];
+
+"process/
+ext_relation_formationtemporal_global" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_formationtemporal" -> "process/
+ext_relation_formationtemporal_global" [
+label=""
+
+];
+
+"process/
+ext_relation_formationtemporal_supervise_by_ext_relation_variable_formationtemporal" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+ext_relation_formationtemporal_supervise_by_ext_relation_variable_formationtemporal" [
+label=""
+
+];
+
+"process/
+ext_relation_taxonomy" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_taxonomy_supervise" -> "process/
+ext_relation_taxonomy" [
+label=""
+
+];
+
+"process/
+ext_relation_taxonomy_global" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_taxonomy" -> "process/
+ext_relation_taxonomy_global" [
+label=""
+
+];
+
+"process/
+ext_relation_taxonomy_supervise_by_ext_relation_variable_taxonomy" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+ext_relation_taxonomy_supervise_by_ext_relation_variable_taxonomy" [
+label=""
+
+];
+
+"process/
+ext_sentences" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+sentences_original" -> "process/
+ext_sentences" [
+label=""
+
+];
+
+"process/
+ext_sentences_serialized" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+sentences" -> "process/
+ext_sentences_serialized" [
+label=""
+
+];
+
+"process/
+ext_taxon_per_doc" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_taxon_candidate_local" -> "process/
+ext_taxon_per_doc" [
+label=""
+
+];
+
+"process/
+grounding/variable_id_partition" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_formation" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+entity_location" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+entity_taxon" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+entity_temporal" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+relation_formation" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+relation_formation_global" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+relation_formationtemporal" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+relation_formationtemporal_global" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+relation_taxonomy" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"data/
+relation_taxonomy_global" -> "process/
+grounding/variable_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_formation/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/entity_formation/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_location/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/entity_location/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_taxon/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/entity_taxon/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_temporal/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/entity_temporal/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/relation_formation/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation_global/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/relation_formation_global/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/relation_formationtemporal/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal_global/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/relation_formationtemporal_global/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/relation_taxonomy/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy_global/assign_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_id_partition" -> "process/
+grounding/variable/relation_taxonomy_global/assign_id" [
+label=""
+
+];
+
+"process/
+grounding/variable_holdout" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable/entity_formation/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_location/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_taxon/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_temporal/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation_global/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal_global/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy_global/assign_id" -> "process/
+grounding/variable_holdout" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_formation/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/entity_formation/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_location/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/entity_location/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_taxon/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/entity_taxon/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_temporal/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/entity_temporal/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/relation_formation/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation_global/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/relation_formation_global/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/relation_formationtemporal/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal_global/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/relation_formationtemporal_global/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/relation_taxonomy/dump" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy_global/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/variable_holdout" -> "process/
+grounding/variable/relation_taxonomy_global/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_formation_candidate" -> "process/
+grounding/factor/inf_istrue_entity_formation/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_formation/assign_id" -> "process/
+grounding/factor/inf_istrue_entity_formation/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_location/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_location_candidate" -> "process/
+grounding/factor/inf_istrue_entity_location/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_location/assign_id" -> "process/
+grounding/factor/inf_istrue_entity_location/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_taxon_candidate" -> "process/
+grounding/factor/inf_istrue_entity_taxon/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_taxon/assign_id" -> "process/
+grounding/factor/inf_istrue_entity_taxon/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+entity_temporal_candidate" -> "process/
+grounding/factor/inf_istrue_entity_temporal/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_temporal/assign_id" -> "process/
+grounding/factor/inf_istrue_entity_temporal/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+grounding/factor/inf_istrue_relation_formation/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_formation/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+grounding/factor/inf_istrue_relation_formation_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_formation_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation_global/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_formation_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_formation/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_temporal/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal_global/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy/materialize" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/materialize" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+relation_candidates" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy_global/assign_id" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy_global/materialize" [
+label=""
+
+];
+
+"process/
+grounding/weight_id_partition" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_location/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/materialize" -> "process/
+grounding/weight_id_partition" [
+label=""
+
+];
+
+"process/
+grounding/global_weight_table" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_location/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/materialize" -> "process/
+grounding/global_weight_table" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_entity_formation/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_location/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_entity_location/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_entity_taxon/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_entity_temporal/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_relation_formation/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_relation_formation_global/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/assign_weight_id" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/weight_id_partition" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy_global/assign_weight_id" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_entity_formation/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_location/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_location/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_entity_location/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_entity_taxon/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_entity_temporal/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_formation/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_formation_global/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/dump" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy_global/dump" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_entity_formation/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_location/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_location/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_entity_location/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_entity_taxon/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_entity_temporal/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_formation/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_formation_global/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/dump_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/assign_weight_id" -> "process/
+grounding/factor/inf_istrue_relation_taxonomy_global/dump_weights" [
+label=""
+
+];
+
+"process/
+grounding/combine_factorgraph" [shape=ellipse  color="#cc2222" style=solid];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_formation/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_location/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_location/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_taxon/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_entity_temporal/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formation_global/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_formationtemporal_global/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/factor/inf_istrue_relation_taxonomy_global/dump_weights" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/global_weight_table" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_formation/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_location/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_taxon/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/entity_temporal/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formation_global/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_formationtemporal_global/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+grounding/variable/relation_taxonomy_global/dump" -> "process/
+grounding/combine_factorgraph" [
+label=""
+
+];
+
+"process/
+model/learning" [shape=ellipse  color="#cc2222" style=solid];
+
+"model/
+factorgraph" -> "process/
+model/learning" [
+label=""
+
+];
+
+"process/
+model/inference" [shape=ellipse  color="#cc2222" style=solid];
+
+"model/
+factorgraph" -> "process/
+model/inference" [
+label=""
+
+];
+
+"model/
+weights" -> "process/
+model/inference" [
+label=""
+
+];
+
+"process/
+model/load_weights" [shape=ellipse  color="#cc2222" style=solid];
+
+"model/
+weights" -> "process/
+model/load_weights" [
+label=""
+
+];
+
+"process/
+model/load_probabilities" [shape=ellipse  color="#cc2222" style=solid];
+
+"model/
+probabilities" -> "process/
+model/load_probabilities" [
+label=""
+
+];
+
+"process/
+model/calibration" [shape=ellipse  color="#cc2222" style=solid];
+
+"data/
+model/probabilities" -> "process/
+model/calibration" [
+label=""
+
+];
+
+"data/
+all_entity_candidate" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_all_entity_candidate" -> "data/
+all_entity_candidate" [
+label=""
+
+];
+
+"data/
+all_entity_per_doc" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_all_entity_per_doc" -> "data/
+all_entity_per_doc" [
+label=""
+
+];
+
+"data/
+document_with_all_entities" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_document_with_all_entities" -> "data/
+document_with_all_entities" [
+label=""
+
+];
+
+"data/
+document_with_formation_entities" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_document_with_formation_entities" -> "data/
+document_with_formation_entities" [
+label=""
+
+];
+
+"data/
+document_with_taxon_entities" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_document_with_taxon_entities" -> "data/
+document_with_taxon_entities" [
+label=""
+
+];
+
+"data/
+documents" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_documents" -> "data/
+documents" [
+label=""
+
+];
+
+"data/
+documents_serialized" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_documents_serialized" -> "data/
+documents_serialized" [
+label=""
+
+];
+
+"data/
+entity_formation" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_formation" -> "data/
+entity_formation" [
+label=""
+
+];
+
+"data/
+entity_formation_candidate" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_formation_candidate" -> "data/
+entity_formation_candidate" [
+label=""
+
+];
+
+"data/
+entity_formation_candidate__0" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_formation_candidate__0_by_ext_entity_formation_global" -> "data/
+entity_formation_candidate__0" [
+label=""
+
+];
+
+"data/
+entity_formation_candidate_local" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_formation_candidate_local_by_ext_entity_formation_local" -> "data/
+entity_formation_candidate_local" [
+label=""
+
+];
+
+"data/
+entity_location" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_location" -> "data/
+entity_location" [
+label=""
+
+];
+
+"data/
+entity_location_candidate" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_location_candidate_by_ext_entity_location_global" -> "data/
+entity_location_candidate" [
+label=""
+
+];
+
+"data/
+entity_taxon" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_taxon" -> "data/
+entity_taxon" [
+label=""
+
+];
+
+"data/
+entity_taxon_candidate" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_taxon_candidate" -> "data/
+entity_taxon_candidate" [
+label=""
+
+];
+
+"data/
+entity_taxon_candidate__0" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_taxon_candidate__0_by_ext_entity_taxon_global" -> "data/
+entity_taxon_candidate__0" [
+label=""
+
+];
+
+"data/
+entity_taxon_candidate_local" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_taxon_candidate_local_by_ext_entity_taxon_local" -> "data/
+entity_taxon_candidate_local" [
+label=""
+
+];
+
+"data/
+entity_temporal" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_temporal" -> "data/
+entity_temporal" [
+label=""
+
+];
+
+"data/
+entity_temporal_candidate" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_entity_temporal_candidate_by_ext_entity_temporal_local" -> "data/
+entity_temporal_candidate" [
+label=""
+
+];
+
+"data/
+formation_per_doc" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_formation_per_doc" -> "data/
+formation_per_doc" [
+label=""
+
+];
+
+"data/
+model/probabilities" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+model/load_probabilities" -> "data/
+model/probabilities" [
+label=""
+
+];
+
+"data/
+model/weights" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+model/load_weights" -> "data/
+model/weights" [
+label=""
+
+];
+
+"data/
+relation_candidates" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_candidates_by_ext_relation_same_sent" -> "data/
+relation_candidates" [
+label=""
+
+];
+
+"data/
+relation_formation" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_formation" -> "data/
+relation_formation" [
+label=""
+
+];
+
+"data/
+relation_formation_global" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_formation_global" -> "data/
+relation_formation_global" [
+label=""
+
+];
+
+"data/
+relation_formation_supervise" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_formation_supervise_by_ext_relation_variable_formation" -> "data/
+relation_formation_supervise" [
+label=""
+
+];
+
+"data/
+relation_formationtemporal" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_formationtemporal" -> "data/
+relation_formationtemporal" [
+label=""
+
+];
+
+"data/
+relation_formationtemporal_global" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_formationtemporal_global" -> "data/
+relation_formationtemporal_global" [
+label=""
+
+];
+
+"data/
+relation_formationtemporal_supervise" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_formationtemporal_supervise_by_ext_relation_variable_formationtemporal" -> "data/
+relation_formationtemporal_supervise" [
+label=""
+
+];
+
+"data/
+relation_taxonomy" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_taxonomy" -> "data/
+relation_taxonomy" [
+label=""
+
+];
+
+"data/
+relation_taxonomy_global" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_taxonomy_global" -> "data/
+relation_taxonomy_global" [
+label=""
+
+];
+
+"data/
+relation_taxonomy_supervise" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_relation_taxonomy_supervise_by_ext_relation_variable_taxonomy" -> "data/
+relation_taxonomy_supervise" [
+label=""
+
+];
+
+"data/
+sentences" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_sentences" -> "data/
+sentences" [
+label=""
+
+];
+
+"data/
+sentences_original" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+init/relation/sentences_original" -> "data/
+sentences_original" [
+label=""
+
+];
+
+"data/
+sentences_serialized" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_sentences_serialized" -> "data/
+sentences_serialized" [
+label=""
+
+];
+
+"data/
+taxon_per_doc" [shape=box3d    color="#2222cc" style=solid];
+
+"process/
+ext_taxon_per_doc" -> "data/
+taxon_per_doc" [
+label=""
+
+];
+
+"model/
+calibration-plots" [shape=septagon color="#ffffff" style=filled fillcolor="#cc22cc"];
+
+"process/
+model/calibration" -> "model/
+calibration-plots" [
+label=""
+
+];
+
+"model/
+factorgraph" [shape=septagon color="#ffffff" style=filled fillcolor="#cc22cc"];
+
+"process/
+grounding/combine_factorgraph" -> "model/
+factorgraph" [
+label=""
+
+];
+
+"model/
+probabilities" [shape=septagon color="#ffffff" style=filled fillcolor="#cc22cc"];
+
+"process/
+model/inference" -> "model/
+probabilities" [
+label=""
+
+];
+
+"model/
+weights" [shape=septagon color="#ffffff" style=filled fillcolor="#cc22cc"];
+
+"process/
+model/learning" -> "model/
+weights" [
+label=""
+
+];
+
+
+}
+

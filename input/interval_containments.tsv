@@ -1,0 +1,182 @@
+\N	research group	Messinian|7.24600|5.33300	Late Miocene|11.6080|5.3320
+\N	park formation	Eocene|56.00000|33.90000	Early Tertiary|65.5000|33.9000
+\N	park formation	Early Tertiary|65.5000|33.9000	Tertiary|66.00000|2.58800
+\N	park formation	Quaternary|2.58800|0.00000	Cenozoic|66.00000|0.00000
+\N	park formation	Late Oligocene|28.4000|23.0300	Tertiary|66.00000|2.58800
+\N	troublesome formation	Early Oligocene|33.9000|28.4000	Tertiary|66.00000|2.58800
+\N	niobrara formation	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	troublesome formation	Pliocene|5.33300|2.58800	Tertiary|66.00000|2.58800
+\N	dakota sandstone	Late Jurassic|161.2000|145.5000	Mesozoic|252.17000|66.00000
+\N	research group	Late Miocene|11.6080|5.3320	Neogene|23.03000|2.58800
+\N	troublesome formation	Middle Miocene|15.9700|11.6080	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Late Pliocene|3.6000|2.5880	Cenozoic|66.00000|0.00000
+\N	colorado shale	Paleocene|66.00000|56.00000	Tertiary|66.00000|2.58800
+\N	morrison formation	Triassic|252.17000|201.30000	Mesozoic|252.17000|66.00000
+\N	north park formation	Early Eocene|55.8000|48.6000	Eocene|56.00000|33.90000
+\N	colorado shale	Eocene|56.00000|33.90000	Tertiary|66.00000|2.58800
+\N	park formation	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	north park formation	Late Miocene|11.6080|5.3320	Late Tertiary|23.0300|2.5880
+\N	park formation	Late Eocene|37.2000|33.9000	Cenozoic|66.00000|0.00000
+\N	colorado shale	Late Miocene|11.6080|5.3320	Late Tertiary|23.0300|2.5880
+\N	park formation	Late Miocene|11.6080|5.3320	Tertiary|66.00000|2.58800
+\N	denver formation	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	park formation	Oligocene|33.90000|23.03000	Tertiary|66.00000|2.58800
+\N	windy gap member	Early Tertiary|65.5000|33.9000	Tertiary|66.00000|2.58800
+\N	north park formation	Early Eocene|55.8000|48.6000	Early Tertiary|65.5000|33.9000
+\N	park formation	Middle Miocene|15.9700|11.6080	Late Tertiary|23.0300|2.5880
+\N	park formation	Late Pliocene|3.6000|2.5880	Late Tertiary|23.0300|2.5880
+\N	colorado shale	Late Pliocene|3.6000|2.5880	Tertiary|66.00000|2.58800
+\N	coalmont formation	Eocene|56.00000|33.90000	Early Tertiary|65.5000|33.9000
+\N	park formation	Late Tertiary|23.0300|2.5880	Tertiary|66.00000|2.58800
+\N	troublesome formation	Paleocene|66.00000|56.00000	Cenozoic|66.00000|0.00000
+\N	park formation	Middle Miocene|15.9700|11.6080	Miocene|23.03000|5.33300
+\N	huelva formation	Early Pliocene|5.3320|3.6000	Pliocene|5.33300|2.58800
+\N	north park formation	Miocene|23.03000|5.33300	Late Tertiary|23.0300|2.5880
+\N	rabbit ears volcanics	Pliocene|5.33300|2.58800	Tertiary|66.00000|2.58800
+\N	benton formation	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	arikaree formation	Miocene|23.03000|5.33300	Tertiary|66.00000|2.58800
+\N	park formation	Miocene|23.03000|5.33300	Tertiary|66.00000|2.58800
+\N	colorado shale	Miocene|23.03000|5.33300	Late Tertiary|23.0300|2.5880
+\N	park formation	Tertiary|66.00000|2.58800	Cenozoic|66.00000|0.00000
+\N	dakota sandstone	Early Cretaceous|145.5000|99.6000	Mesozoic|252.17000|66.00000
+\N	park formation	Middle Tertiary|33.9000|23.0300	Tertiary|66.00000|2.58800
+\N	park formation	Early Eocene|55.8000|48.6000	Tertiary|66.00000|2.58800
+\N	colorado shale	Tertiary|66.00000|2.58800	Cenozoic|66.00000|0.00000
+\N	park formation	Miocene|23.03000|5.33300	Late Tertiary|23.0300|2.5880
+\N	coalmont formation	Early Eocene|55.8000|48.6000	Eocene|56.00000|33.90000
+\N	colorado shale	Miocene|23.03000|5.33300	Tertiary|66.00000|2.58800
+\N	park formation	Early Oligocene|33.9000|28.4000	Cenozoic|66.00000|0.00000
+\N	marsland formation	Middle Miocene|15.9700|11.6080	Miocene|23.03000|5.33300
+\N	park formation	Pliocene|5.33300|2.58800	Cenozoic|66.00000|0.00000
+\N	hemingford group	Middle Miocene|15.9700|11.6080	Miocene|23.03000|5.33300
+\N	troublesome formation	Early Tertiary|65.5000|33.9000	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Early Pliocene|5.3320|3.6000	Cenozoic|66.00000|0.00000
+\N	rabbit ears volcanics	Pliocene|5.33300|2.58800	Late Tertiary|23.0300|2.5880
+\N	windy gap member	Paleocene|66.00000|56.00000	Tertiary|66.00000|2.58800
+\N	troublesome formation	Oligocene|33.90000|23.03000	Middle Tertiary|33.9000|23.0300
+\N	north park formation	Middle Miocene|15.9700|11.6080	Late Tertiary|23.0300|2.5880
+\N	troublesome formation	Oligocene|33.90000|23.03000	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Late Miocene|11.6080|5.3320	Cenozoic|66.00000|0.00000
+\N	park formation	Early Eocene|55.8000|48.6000	Early Tertiary|65.5000|33.9000
+\N	gap volcanic member	Early Tertiary|65.5000|33.9000	Tertiary|66.00000|2.58800
+\N	park formation	Early Oligocene|33.9000|28.4000	Middle Tertiary|33.9000|23.0300
+\N	park formation	Middle Tertiary|33.9000|23.0300	Oligocene|33.90000|23.03000
+\N	colorado shale	Late Tertiary|23.0300|2.5880	Tertiary|66.00000|2.58800
+\N	windy gap volcanic member	Early Tertiary|65.5000|33.9000	Tertiary|66.00000|2.58800
+\N	park formation	Middle Miocene|15.9700|11.6080	Tertiary|66.00000|2.58800
+\N	park formation	Late Pliocene|3.6000|2.5880	Tertiary|66.00000|2.58800
+\N	north park formation	Middle Miocene|15.9700|11.6080	Miocene|23.03000|5.33300
+\N	colorado shale	Late Pliocene|3.6000|2.5880	Late Tertiary|23.0300|2.5880
+\N	park formation	Early Eocene|55.8000|48.6000	Eocene|56.00000|33.90000
+\N	park formation	Late Pliocene|3.6000|2.5880	Pliocene|5.33300|2.58800
+\N	colorado shale	Late Miocene|11.6080|5.3320	Tertiary|66.00000|2.58800
+\N	park formation	Late Miocene|11.6080|5.3320	Late Tertiary|23.0300|2.5880
+\N	dakota sandstone	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	rabbit ears volcanics	Late Oligocene|28.4000|23.0300	Middle Tertiary|33.9000|23.0300
+\N	research group	Messinian|7.24600|5.33300	Neogene|23.03000|2.58800
+\N	park formation	Paleocene|66.00000|56.00000	Tertiary|66.00000|2.58800
+\N	troublesome formation	Late Tertiary|23.0300|2.5880	Cenozoic|66.00000|0.00000
+\N	pete gulch member	Oligocene|33.90000|23.03000	Tertiary|66.00000|2.58800
+\N	morrison formation	Jurassic|201.30000|145.00000	Mesozoic|252.17000|66.00000
+\N	benton formation	Early Cretaceous|145.5000|99.6000	Mesozoic|252.17000|66.00000
+\N	squantum member	Ediacaran|635.00000|541.00000	Neoproterozoic|1000.00000|541.00000
+\N	troublesome formation	Early Oligocene|33.9000|28.4000	Oligocene|33.90000|23.03000
+\N	park formation	Late Oligocene|28.4000|23.0300	Oligocene|33.90000|23.03000
+\N	park formation	Eocene|56.00000|33.90000	Tertiary|66.00000|2.58800
+\N	north park formation	Eocene|56.00000|33.90000	Early Tertiary|65.5000|33.9000
+\N	rabbit ears volcanics	Oligocene|33.90000|23.03000	Middle Tertiary|33.9000|23.0300
+\N	troublesome formation	Pliocene|5.33300|2.58800	Late Tertiary|23.0300|2.5880
+\N	troublesome formation	Middle Tertiary|33.9000|23.0300	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Miocene|23.03000|5.33300	Cenozoic|66.00000|0.00000
+\N	coalmont formation	Early Eocene|55.8000|48.6000	Early Tertiary|65.5000|33.9000
+\N	morrison formation	Late Jurassic|161.2000|145.5000	Jurassic|201.30000|145.00000
+\N	troublesome formation	Early Miocene|23.0300|15.9700	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Triassic|252.17000|201.30000	Mesozoic|252.17000|66.00000
+\N	colorado shale	Quaternary|2.58800|0.00000	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Late Tertiary|23.0300|2.5880	Tertiary|66.00000|2.58800
+\N	ogallala formation	Miocene|23.03000|5.33300	Late Tertiary|23.0300|2.5880
+\N	park formation	Paleocene|66.00000|56.00000	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Middle Miocene|15.9700|11.6080	Late Tertiary|23.0300|2.5880
+\N	troublesome formation	Late Pliocene|3.6000|2.5880	Late Tertiary|23.0300|2.5880
+\N	morrison formation	Early Cretaceous|145.5000|99.6000	Mesozoic|252.17000|66.00000
+\N	rabbit ears volcanics	Oligocene|33.90000|23.03000	Tertiary|66.00000|2.58800
+\N	park formation	Eocene|56.00000|33.90000	Cenozoic|66.00000|0.00000
+\N	colorado shale	Late Miocene|11.6080|5.3320	Cenozoic|66.00000|0.00000
+\N	windy gap member	Pliocene|5.33300|2.58800	Tertiary|66.00000|2.58800
+\N	rabbit ears volcanics	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	ghaub formation	Ediacaran|635.00000|541.00000	Neoproterozoic|1000.00000|541.00000
+\N	troublesome formation	Middle Miocene|15.9700|11.6080	Miocene|23.03000|5.33300
+\N	benton shale	Early Cretaceous|145.5000|99.6000	Mesozoic|252.17000|66.00000
+\N	rabbit ears volcanics	Late Oligocene|28.4000|23.0300	Tertiary|66.00000|2.58800
+\N	troublesome formation	Early Miocene|23.0300|15.9700	Tertiary|66.00000|2.58800
+\N	park formation	Late Eocene|37.2000|33.9000	Early Tertiary|65.5000|33.9000
+\N	troublesome formation	Tertiary|66.00000|2.58800	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Early Pliocene|5.3320|3.6000	Pliocene|5.33300|2.58800
+\N	troublesome formation	Middle Tertiary|33.9000|23.0300	Tertiary|66.00000|2.58800
+\N	troublesome formation	Miocene|23.03000|5.33300	Tertiary|66.00000|2.58800
+\N	troublesome formation	Quaternary|2.58800|0.00000	Cenozoic|66.00000|0.00000
+\N	rabbit ears volcanics	Miocene|23.03000|5.33300	Tertiary|66.00000|2.58800
+\N	north park formation	Pliocene|5.33300|2.58800	Late Tertiary|23.0300|2.5880
+\N	park formation	Late Eocene|37.2000|33.9000	Eocene|56.00000|33.90000
+\N	rabbit ears volcanics	Middle Tertiary|33.9000|23.0300	Tertiary|66.00000|2.58800
+\N	troublesome formation	Early Pliocene|5.3320|3.6000	Tertiary|66.00000|2.58800
+\N	troublesome formation	Early Tertiary|65.5000|33.9000	Tertiary|66.00000|2.58800
+\N	colorado shale	Miocene|23.03000|5.33300	Cenozoic|66.00000|0.00000
+\N	rabbit ears volcanics	Early Miocene|23.0300|15.9700	Tertiary|66.00000|2.58800
+\N	colorado shale	Pleistocene|2.58800|0.01170	Quaternary|2.58800|0.00000
+\N	park formation	Pliocene|5.33300|2.58800	Tertiary|66.00000|2.58800
+\N	park formation	Early Oligocene|33.9000|28.4000	Tertiary|66.00000|2.58800
+\N	morrison formation	Late Jurassic|161.2000|145.5000	Mesozoic|252.17000|66.00000
+\N	colorado shale	Late Tertiary|23.0300|2.5880	Cenozoic|66.00000|0.00000
+\N	park formation	Middle Miocene|15.9700|11.6080	Cenozoic|66.00000|0.00000
+\N	park formation	Late Pliocene|3.6000|2.5880	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Oligocene|33.90000|23.03000	Tertiary|66.00000|2.58800
+\N	ogallala formation	Early Pliocene|5.3320|3.6000	Late Tertiary|23.0300|2.5880
+\N	troublesome formation	Late Miocene|11.6080|5.3320	Tertiary|66.00000|2.58800
+\N	rabbit ears volcanics	Late Tertiary|23.0300|2.5880	Tertiary|66.00000|2.58800
+\N	pierre shale	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	rabbit ears volcanics	Middle Tertiary|33.9000|23.0300	Oligocene|33.90000|23.03000
+\N	troublesome formation	Late Pliocene|3.6000|2.5880	Pliocene|5.33300|2.58800
+\N	ogallala formation	Early Pliocene|5.3320|3.6000	Tertiary|66.00000|2.58800
+\N	troublesome formation	Late Miocene|11.6080|5.3320	Late Tertiary|23.0300|2.5880
+\N	park formation	Early Oligocene|33.9000|28.4000	Oligocene|33.90000|23.03000
+\N	colorado shale	Late Pliocene|3.6000|2.5880	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Paleocene|66.00000|56.00000	Tertiary|66.00000|2.58800
+\N	park formation	Late Tertiary|23.0300|2.5880	Cenozoic|66.00000|0.00000
+\N	park formation	Miocene|23.03000|5.33300	Cenozoic|66.00000|0.00000
+\N	park formation	Middle Tertiary|33.9000|23.0300	Cenozoic|66.00000|0.00000
+\N	benton shale	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	park formation	Pliocene|5.33300|2.58800	Late Tertiary|23.0300|2.5880
+\N	rabbit ears volcanics	Early Miocene|23.0300|15.9700	Late Tertiary|23.0300|2.5880
+\N	park formation	Early Eocene|55.8000|48.6000	Cenozoic|66.00000|0.00000
+\N	rabbit ears volcanics	Early Miocene|23.0300|15.9700	Miocene|23.03000|5.33300
+\N	troublesome formation	Early Pliocene|5.3320|3.6000	Late Tertiary|23.0300|2.5880
+\N	rabbit ears volcanics	Miocene|23.03000|5.33300	Late Tertiary|23.0300|2.5880
+\N	colorado shale	Pleistocene|2.58800|0.01170	Cenozoic|66.00000|0.00000
+\N	morrison formation	Cretaceous|145.00000|66.00000	Mesozoic|252.17000|66.00000
+\N	troublesome formation	Pliocene|5.33300|2.58800	Cenozoic|66.00000|0.00000
+\N	park formation	Late Oligocene|28.4000|23.0300	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Early Oligocene|33.9000|28.4000	Cenozoic|66.00000|0.00000
+\N	fourchu group	Hadrynian|850.0000|542.0000	Precambrian|4000.0000|542.0000
+\N	troublesome formation	Miocene|23.03000|5.33300	Late Tertiary|23.0300|2.5880
+\N	ogallala formation	Late Tertiary|23.0300|2.5880	Tertiary|66.00000|2.58800
+\N	troublesome formation	Early Miocene|23.0300|15.9700	Miocene|23.03000|5.33300
+\N	park formation	Oligocene|33.90000|23.03000	Middle Tertiary|33.9000|23.0300
+\N	troublesome formation	Early Miocene|23.0300|15.9700	Late Tertiary|23.0300|2.5880
+\N	park formation	Early Tertiary|65.5000|33.9000	Cenozoic|66.00000|0.00000
+\N	rabbit ears volcanics	Paleocene|66.00000|56.00000	Tertiary|66.00000|2.58800
+\N	park formation	Late Miocene|11.6080|5.3320	Cenozoic|66.00000|0.00000
+\N	blackstone group	Devonian|419.20000|358.90000	Paleozoic|541.00000|252.17000
+\N	park formation	Oligocene|33.90000|23.03000	Cenozoic|66.00000|0.00000
+\N	windy gap volcanic member	Pliocene|5.33300|2.58800	Tertiary|66.00000|2.58800
+\N	rabbit ears volcanics	Late Oligocene|28.4000|23.0300	Oligocene|33.90000|23.03000
+\N	troublesome formation	Middle Miocene|15.9700|11.6080	Tertiary|66.00000|2.58800
+\N	troublesome formation	Late Pliocene|3.6000|2.5880	Tertiary|66.00000|2.58800
+\N	colorado shale	Paleocene|66.00000|56.00000	Cenozoic|66.00000|0.00000
+\N	troublesome formation	Middle Tertiary|33.9000|23.0300	Oligocene|33.90000|23.03000
+\N	ogallala formation	Miocene|23.03000|5.33300	Tertiary|66.00000|2.58800
+\N	park formation	Late Oligocene|28.4000|23.0300	Middle Tertiary|33.9000|23.0300
+\N	troublesome formation	Early Oligocene|33.9000|28.4000	Middle Tertiary|33.9000|23.0300
+\N	gap volcanic member	Pliocene|5.33300|2.58800	Tertiary|66.00000|2.58800
+\N	colorado shale	Eocene|56.00000|33.90000	Cenozoic|66.00000|0.00000
+\N	park formation	Late Eocene|37.2000|33.9000	Tertiary|66.00000|2.58800

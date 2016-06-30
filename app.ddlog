@@ -1,0 +1,371 @@
+sentences_original(
+    docid text,
+    sentid text,
+    wordindex text[],
+    words text[],
+    poses text[],
+    ners text[],
+    lemmas text[],
+    dep_paths text[],
+    dep_parents text[],
+    bounding_boxes text[]).
+
+sentences(docid, sentid, wordindex, words, poses, ners, lemmas, dep_paths, dep_parents, NULL, NULL)
+  :- sentences_original(docid, sentid, wordindex, words, poses, ners, lemmas, dep_paths, dep_parents, bounding_boxes).
+
+sentences(
+	docid text,
+	sentid text,
+	wordindex text[],
+	words text[],
+	poses text[],
+	ners text[],
+	lemmas text[],
+	dep_paths text[],
+	dep_parents text[],
+	font text[],
+	layout text[]).
+
+#ddtables (docid text, tableid text, type text, sentid text).
+
+sentences_serialized(docid text, sentid text, wordidxs text, words text, poses text, ners text, lemmas text, dep_paths text, dep_parents text, font text, layout text).
+
+documents(docid text, sentids text[], wordidxs text[], words text[], poses text[], ners text[], lemmas text[], dep_paths text[], dep_parents text[], font text[], layout text[]).
+
+documents_serialized(docid text, sentids text, wordidxs text, words text, poses text, ners text, lemmas text, dep_paths text, dep_parents text, font text, layout text).
+
+
+entity_formation_candidate_local (docid text, type text, eid text, entity text, prov text).
+
+entity_taxon_candidate_local (docid text, type text, eid text, entity text, author_year text, prov text).
+
+entity_formation_candidate (docid text, type text, eid text, entity text, prov text).
+
+entity_taxon_candidate (docid text, type text, eid text, entity text, author_year text, prov text).
+
+entity_location_candidate (docid text, type text, eid text, entity text, prov text).
+
+entity_temporal_candidate (docid text, type text, eid text, entity text, prov text).
+
+all_entity_candidate(docid text, type text, eid text, entity text, prov text).
+
+formation_per_doc(docid text, entity text[], type text[]).
+
+taxon_per_doc(docid text, entity text[], type text[]).
+
+all_entity_per_doc(docid text, eid text[], entity text[], type text[], prov text[]).
+
+document_with_formation_entities(docid text, entities text, types text, sentids text, wordidxs text, words text, poses text, ners text, lemmas text, dep_paths text, dep_parents text, font text, layout text).
+
+document_with_taxon_entities(docid text, entities text, types text, sentids text, wordidxs text, words text, poses text, ners text, lemmas text, dep_paths text, dep_parents text, font text, layout text).
+
+document_with_all_entities(docid text, entities text, types text, eids text, provs text, sentids text, wordidxs text, words text, poses text, ners text, lemmas text, dep_paths text, dep_parents text, font text, layout text).
+
+
+relation_candidates (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text, features text).
+
+entity_formation? (docid text, type text, eid text, entity text, prov text).
+
+entity_taxon? (docid text, type text, eid text, entity text, author_year text, prov text).
+
+entity_location? (docid text, type text, eid text, entity text, prov text).
+
+entity_temporal? (docid text, type text, eid text, entity text, prov text).
+
+relation_formation? (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text).
+
+relation_formationtemporal? (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text).
+
+# relation_formationlocation? (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text).
+
+relation_taxonomy? (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text).
+
+relation_formation_supervise (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text, label boolean).
+
+relation_formationtemporal_supervise (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text, label boolean).
+
+# relation_formationlocation_supervise (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text, label boolean).
+
+relation_taxonomy_supervise (docid text, type text, eid1 text, eid2 text, entity1 text, entity2 text, label boolean).
+
+
+relation_formation_global? (type text, entity1 text, entity2 text).
+
+relation_formationtemporal_global? (type text, entity1 text, entity2 text).
+
+# relation_formationlocation_global? (type text, entity1 text, entity2 text).
+
+relation_taxonomy_global? (type text, entity1 text, entity2 text).
+
+#interval_containments (formation text, child text, parent text).
+
+#interval_not_that_possible(formation text, interval1 text, interval2 text).
+
+
+sentences_serialized(
+	docid, 
+	sentid, 
+	array_to_string(wordidxs, "@@@@@"), 
+	array_to_string(words, "@@@@@"), 
+	array_to_string(poses, "@@@@@"), 
+	array_to_string(ners, "@@@@@"), 
+	array_to_string(lemmas, "@@@@@"), 
+	array_to_string(dep_paths, "@@@@@"), 
+	array_to_string(dep_parents, "@@@@@"), 
+	array_to_string(font, "@@@@@"),
+	array_to_string(layout, "@@@@@")) *
+	:- sentences(docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+documents(
+	docid,
+	ARRAY_AGG(sentid),
+	ARRAY_AGG(wordidxs), 
+	ARRAY_AGG(words), 
+	ARRAY_AGG(poses),
+	ARRAY_AGG(ners), 
+	ARRAY_AGG(lemmas), 
+	ARRAY_AGG(dep_paths),
+	ARRAY_AGG(dep_parents), 
+	ARRAY_AGG(font),
+	ARRAY_AGG(layout)) *
+	:- sentences_serialized(docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+
+documents_serialized(
+	docid,
+	array_to_string(sentids, "|||||"),
+	array_to_string(wordidxs, "|||||"),
+	array_to_string(words, "|||||"),
+	array_to_string(poses, "|||||"),
+	array_to_string(ners, "|||||"),
+	array_to_string(lemmas, "|||||"),
+	array_to_string(dep_paths, "|||||"),
+	array_to_string(dep_parents, "|||||"),
+	array_to_string(font, "|||||"),
+	array_to_string(layout, "|||||")) 
+	:- documents(docid, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+function ext_entity_formation_local over rows like sentences_serialized
+                 returns rows like entity_formation
+  implementation "/udf/ext_formation_local.py" handles tsv lines.
+entity_formation_candidate_local += ext_entity_formation_local(docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+  :- sentences_serialized(docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+function ext_entity_temporal_local over rows like sentences_serialized
+                 returns rows like entity_temporal
+  implementation "/udf/ext_temporal_local.py" handles tsv lines.
+entity_temporal_candidate += ext_entity_temporal_local(docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+  :- sentences_serialized(docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+function ext_entity_taxon_local over rows like sentences_serialized
+                 returns rows like entity_taxon
+  implementation "/udf/ext_taxon_local.py" handles tsv lines.
+entity_taxon_candidate_local += ext_entity_taxon_local(docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+  :- sentences_serialized(docid, sentid, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+formation_per_doc(docid, ARRAY_AGG(entity), ARRAY_AGG(type)) :-
+    entity_formation_candidate_local(docid, type, eid, entity, prov).
+
+taxon_per_doc(docid, ARRAY_AGG(entity), ARRAY_AGG(type)) :-
+	entity_taxon_candidate_local(docid, type, eid, entity, author_year, prov).
+
+
+function ext_entity_formation_global over rows like document_with_formation_entities
+				  returns rows like entity_formation
+  implementation "/udf/ext_formation_global.py" handles tsv lines.
+
+document_with_formation_entities(docid, 
+  array_to_string(entities, "@@@@@"),
+  array_to_string(types, "@@@@@"),
+  sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout) 
+:-
+  formation_per_doc(docid, entities, types),
+  documents_serialized(docid, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+entity_formation_candidate += ext_entity_formation_global(docid, entities, types, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+  :-document_with_formation_entities(docid, entities, types, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+entity_formation_candidate(docid, type, eid, entity, prov) :-
+	entity_formation_candidate_local(docid, type, eid, entity, prov).
+
+
+
+function ext_entity_taxon_global over rows like document_with_taxon_entities
+				  returns rows like entity_taxon
+  implementation "/udf/ext_taxon_global.py" handles tsv lines.
+
+document_with_taxon_entities(docid, 
+  array_to_string(entities, "@@@@@"),
+  array_to_string(types, "@@@@@"),
+  sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout) 
+:-
+  taxon_per_doc(docid, entities, types),
+  documents_serialized(docid, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+entity_taxon_candidate += ext_entity_taxon_global(docid, entities, types, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+  :- document_with_taxon_entities(docid, entities, types, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+entity_taxon_candidate(docid, type, eid, entity, author_year, prov) :-
+	entity_taxon_candidate_local(docid, type, eid, entity, author_year, prov).
+
+function ext_entity_location_global over rows like documents_serialized
+				  returns rows like entity_location
+  implementation "/udf/ext_location_global.py" handles tsv lines.
+
+entity_location_candidate += ext_entity_location_global(docid, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+  :- documents_serialized(docid, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+	
+all_entity_candidate(docid, "FORMATION", eid, entity, prov) :-
+	entity_formation_candidate(docid, type, eid, entity, prov).
+
+all_entity_candidate(docid, "INTERVAL", eid, entity, prov) :-
+	entity_temporal_candidate(docid, type, eid, entity, prov).
+
+all_entity_candidate(docid, "TAXON-" || type, eid, entity, prov) :-
+	entity_taxon_candidate(docid, type, eid, entity, author_yaer, prov).
+
+all_entity_candidate(docid, "LOCATION", eid, entity, prov) :-
+	entity_location_candidate(docid, type, eid, entity, prov).
+
+all_entity_per_doc(docid, ARRAY_AGG(eid), ARRAY_AGG(entity), ARRAY_AGG(type), ARRAY_AGG(prov)) :-
+	all_entity_candidate(docid, type, eid, entity, prov).
+
+document_with_all_entities(docid,
+  array_to_string(entities, "@@@@@"),
+  array_to_string(types, "@@@@@"),
+  array_to_string(eids, "@@@@@"),
+  array_to_string(provs, "@@@@@"),
+  sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+:-
+  all_entity_per_doc(docid, eids, entities, types, provs),
+  documents_serialized(docid, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+function ext_relation_same_sent over rows like document_with_all_entities
+				 returns rows like relation_candidates
+  implementation "/udf/ext_relation_samesent.py" handles tsv lines.
+
+relation_candidates += ext_relation_same_sent(docid, entities, types, eids, provs, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+  :- document_with_all_entities(docid, entities, types, eids, provs, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+#function ext_relation_sectionheader over rows like document_with_all_entities
+#				 returns rows like relation_candidates
+#  implementation "/udf/ext_relation_sectionheader.py" handles tsv lines.
+
+#relation_candidates += ext_relation_sectionheader(docid, entities, types, eids, provs, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout)
+#  :- document_with_all_entities(docid, entities, types, eids, provs, sentids, wordidxs, words, poses, ners, lemmas, dep_paths, dep_parents, font, layout).
+
+function ext_relation_variable_formationtemporal over rows like relation_candidates
+				 returns rows like relation_formationtemporal_supervise
+  implementation "/udf/supervise_formationtemporal.py" handles tsv lines.
+relation_formationtemporal_supervise += ext_relation_variable_formationtemporal(docid, type, eid1, eid2, entity1, entity2, features)
+  :- relation_candidates(docid, type, eid1, eid2, entity1, entity2, features).
+
+function ext_relation_variable_taxonomy over rows like relation_candidates
+				 returns rows like relation_taxonomy_supervise
+  implementation "/udf/supervise_taxonomy.py" handles tsv lines.
+relation_taxonomy_supervise += ext_relation_variable_taxonomy(docid, type, eid1, eid2, entity1, entity2, features)
+  :- relation_candidates(docid, type, eid1, eid2, entity1, entity2, features).
+
+function ext_relation_variable_formation over rows like relation_candidates
+				 returns rows like relation_formation_supervise
+  implementation "/udf/supervise_formation.py" handles tsv lines.
+relation_formation_supervise += ext_relation_variable_formation(docid, type, eid1, eid2, entity1, entity2, features)
+  :- relation_candidates(docid, type, eid1, eid2, entity1, entity2, features).
+
+relation_formation(docid, type, eid1, eid2, entity1, entity2) = l :-
+	relation_formation_supervise(docid, type, eid1, eid2, entity1, entity2, l).
+
+relation_taxonomy(docid, type, eid1, eid2, entity1, entity2) = l :-
+	relation_taxonomy_supervise(docid, type, eid1, eid2, entity1, entity2, l).
+
+relation_formationtemporal(docid, type, eid1, eid2, entity1, entity2) = l :-
+	relation_formationtemporal_supervise(docid, type, eid1, eid2, entity1, entity2, l).
+
+# relation_formationlocation(docid, type, eid1, eid2, entity1, entity2) = l :-
+# 	relation_formationlocation_supervise(docid, type, eid1, eid2, entity1, entity2, l).
+
+@weight(feature)
+relation_formation(docid, type, eid1, eid2, entity1, entity2) :-
+	relation_candidates(docid, "FORMATION", eid1, eid2, entity1, entity2, feature).
+
+@weight(feature)
+relation_formationtemporal(docid, type, eid1, eid2, entity1, entity2) :-
+	relation_candidates(docid, "FORMATIONINTERVAL", eid1, eid2, entity1, entity2, feature),
+	entity_formation(docid, t1, eid1, entity1, prov1),
+	entity_temporal(docid, t2, eid2, entity2, prov2).
+
+# @weight(feature)
+# relation_formationlocation(docid, type, eid1, eid2, entity1, entity2) :-
+# 	relation_candidates(docid, "FORMATIONLOCATION", eid1, eid2, entity1, entity2, feature).
+
+@weight(feature)
+relation_taxonomy(docid, type, eid1, eid2, entity1, entity2) :-
+	relation_candidates(docid, "TAXONOMY", eid1, eid2, entity1, entity2, feature).
+
+relation_formation_global(type, eid1, eid2) * :-
+	relation_formation(docid, type, eid1, eid2, entity1, entity2).
+
+relation_formationtemporal_global(type, eid1, eid2) * :-
+	relation_formationtemporal(docid, type, eid1, eid2, entity1, entity2).
+
+# relation_formationlocation_global(type, eid1, eid2) * :-
+# 	relation_formationlocation(docid, type, eid1, eid2, entity1, entity2).
+
+relation_taxonomy_global(type, eid1, eid2) * :-
+	relation_taxonomy(docid, type, eid1, eid2, entity1, entity2).
+
+@weight(feature)
+relation_formation_global(type, eid1, eid2) :-
+	relation_formation(docid, type, eid1, eid2, entity1, entity2),
+	relation_candidates(docid, type2, eid1, eid2, entity1, entity2, feature).
+
+@weight(feature)
+relation_formationtemporal_global(type, eid1, eid2) :-
+	relation_formationtemporal(docid, type, eid1, eid2, entity1, entity2),
+	relation_candidates(docid, type2, eid1, eid2, entity1, entity2, feature).
+
+#@weight(feature)
+#relation_formationlocation_global(type, eid1, eid2) :-
+#	relation_formationlocation(docid, type, eid1, eid2, entity1, entity2),
+#	relation_candidates(docid, type2, eid1, eid2, entity1, entity2, feature).
+
+@weight(feature)
+relation_taxonomy_global(type, eid1, eid2) :-
+	relation_taxonomy(docid, type, eid1, eid2, entity1, entity2),
+	relation_candidates(docid, type2, eid1, eid2, entity1, entity2, feature).
+
+entity_formation(docid, type, eid, entity, prov) :- 
+	entity_formation_candidate(docid, type, eid, entity, prov).
+
+entity_temporal(docid, type, eid, entity, prov) :-
+  entity_temporal_candidate(docid, type, eid, entity, prov).
+
+entity_location(docid, type, eid, entity, prov) :-
+  entity_location_candidate(docid, type, eid, entity, prov).
+
+entity_taxon(docid, type, eid, entity, author_year, prov) :-
+  entity_taxon_candidate(docid, type, eid, entity, author_year, prov).
+
+@weight(type)
+entity_formation(docid, type, eid, entity, prov) :-
+  entity_formation_candidate(docid, type, eid, entity, prov).
+
+@weight(type)
+entity_temporal(docid, type, eid, entity, prov) :-
+  entity_temporal_candidate(docid, type, eid, entity, prov).
+
+@weight(type)
+entity_location(docid, type, eid, entity, prov) :-
+  entity_location_candidate(docid, type, eid, entity, prov).
+
+@weight(type)
+entity_taxon(docid, type, eid, entity, author_year, prov) :-
+  entity_taxon_candidate(docid, type, eid, entity, author_year, prov).
+
+
+
+
+
+
+
+

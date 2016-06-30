@@ -1,0 +1,4 @@
+deepdive load interval_containments
+deepdive load interval_not_that_possible
+deepdive load relation_formationlocation
+deepdive load sentences
